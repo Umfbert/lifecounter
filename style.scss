@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+.floater {
+    display: none;
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 100px;
+    background: black;
+    z-index: 200;
+}
+
+body > .main:first-of-type {
+    background: url("pictures/redside.jpg");
+    background-size: cover;
+    transform: rotate(180deg);
+    
+}
+body > .main:last-of-type {
+    background: url("pictures/blueside.jpg");
+    background-size: cover;
+    
+}
+
+.main {
+    width: 100vw;
+    flex: 1 1 auto;
+    position: relative;
+    border: 1px black solid;
+    & div { position: absolute; top: 50%;}  
+
+
+}
+.pluss {
+    right: 20px;
+    background-color: white;
+    border-radius: 200px;
+}
+.minus {
+    left: 20px;
+}
+.hp {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    color: white;
+    text-shadow: -2px 2px 1px black;
+}
+.pluss:before {
+    content: '\f139';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.minus:before {
+    content: '\f13a';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.menu {
+    position: relative;
+    max-height: 0px;
+    height: 0px;
+    overflow: hidden;
+    transition: 300ms max-height ease-in-out 50ms;
+    transition: 300ms height ease-in-out 50ms;
+    background: linear-gradient(#202020, #606060, #202020);
+}
+.menu.active {
+    max-height: 50px !important;
+    height: 50px !important;
+    transition: 300ms max-height ease-in-out 50ms;
+    transition: 300ms height ease-in-out 50ms;
+}
+
+.menu > a {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 400ms left ease-in 400ms;
+    color: white;
+    text-shadow: -2px 2px 3px black;
+}
+.menu.active > a:nth-child(1) {
+    left: 25%;
+}
+
+.menu.active > a:nth-child(2) {
+    left: 75%;
+    //left: unset !important;
+}
+
+.round {
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: white;
+    border-radius: 200px;
+    box-shadow: -2px 2px 3px;
+    cursor: pointer;
+
+    &:before {
+        position: absolute;
+        content: '\f05a';
+        font-weight: 900;
+        font-size: 3rem;
+        font-family: "Font Awesome 5 Free"; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+    }
+}
